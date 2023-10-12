@@ -8,6 +8,7 @@
 
 #ifdef IXWEBSOCKET_USE_ZLIB
 #include "zlib.h"
+#undef compress
 #endif
 #include <array>
 #include <cstdint>
