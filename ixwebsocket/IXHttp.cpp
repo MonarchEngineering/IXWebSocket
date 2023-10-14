@@ -133,17 +133,6 @@ namespace ix
         if (headers.find("Content-Length") != headers.end())
         {
             int contentLength = 0;
-#ifdef __cpp_exceptions
-            try
-            {
-                contentLength = std::stoi(headers["Content-Length"]);
-            }
-            catch (const std::exception&)
-            {
-                return std::make_tuple(
-                    false, "Error parsing HTTP Header 'Content-Length'", httpRequest);
-            }
-#else
             {
                 const char* p = headers["Content-Length"].c_str();
                 char* p_end{};
@@ -158,7 +147,6 @@ namespace ix
                 }
                 contentLength = val;
             }
-#endif
             if (contentLength < 0)
             {
                 return std::make_tuple(
