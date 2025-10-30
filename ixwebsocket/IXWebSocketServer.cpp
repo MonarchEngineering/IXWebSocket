@@ -11,7 +11,9 @@
 #include "IXSocketConnect.h"
 #include "IXWebSocket.h"
 #include "IXWebSocketTransport.h"
+#include <chrono>
 #include <future>
+#include <ratio>
 #include <sstream>
 #include <string.h>
 
